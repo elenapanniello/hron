@@ -18,6 +18,7 @@ where region_id != 2;
 -- non-equality comparison, alternative notation
 select *
 from region
+-- questo farebbe infastidire i colleghi
 where region_id <> 2;
 
 -- strictly less than
@@ -38,6 +39,7 @@ where region_id <= 3;
 -- simple pattern matching (case sensitive)
 select first_name, last_name
 from employee
+-- una lettera jolly iniziale, +ull + il %, ovvero o zero o più elementi
 where last_name like '_ull%';
 
 -- simple pattern matching (case insensitive)
@@ -120,7 +122,8 @@ select *
 from employee
 where commission in (0.10, 0.15);
 
--- this does not select anything!
+-- this does not select anything! No perchè qui devo utilizzar
+-- la dicitura IS not null
 select *
 from employee
 where commission in (null);
