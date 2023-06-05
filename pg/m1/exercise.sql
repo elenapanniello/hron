@@ -38,3 +38,21 @@ from employee
 -- ci deve essere solo una clausola "where"
 where (salary <4000 or salary >15000) AND department_id in (5,8);
 
+-- chi è stato assunto nel 2015;
+SELECT last_name, first_name, salary, hired
+from employee
+-- ricorda il formato anno-mese-giorno
+where hired between '2015-01-01' and '2015-12-31';
+
+SELECT last_name, first_name, salary, hired
+from employee
+where hired::varchar like '2015%';
+
+-- facciamo una join con i nomi propri e dei loro dipartimenti
+-- la left outer join serve perchè voglio vedere anche chi non è associato
+-- a nessun dipartimento (Kimberley)
+select e.first_name, e.last_name, d.name
+from employee e left outer join department d
+using (department_id)
+where last_name ='Grant';
+

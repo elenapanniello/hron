@@ -2,7 +2,8 @@
 
 -- join using
 select e.first_name, e.last_name , d.name as "department name", l.city
-from employee e join department d using (department_id)
+from employee e join department d using (department_id) -- è questa la parte many
+-- in questo caso department è la parte many (foreign key=many)
 	join location l using (location_id);
 
 -- join on
@@ -14,6 +15,7 @@ where d.name = 'IT';
 -- classic
 select e.first_name, e.last_name, d.name as "department name", l.city
 from employee e, department d, location l
+-- aggiungo due filtri qui:
 where d.department_id = e.department_id
 	and d.location_id = l.location_id;
 

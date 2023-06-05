@@ -3,6 +3,8 @@
 -- most common subquery: select - where
 
 -- employees in department 'IT' (slightly unsafe, departments could have duplicated names)
+-- applico un filtraggio in cui il department_id deve selezionare il department_id dal
+-- department il cui nome è IT
 select concat(first_name, ' ', last_name)
 from employee
 where department_id = (
